@@ -1,6 +1,5 @@
 // Interactive controller overlay for DualShock 4/DS4
 
-// Button and axis mapping for DS4
 const DS4_MAP = {
   a: 0, b: 1, x: 2, y: 3,
   l1: 4, r1: 5, l2: 6, r2: 7,
@@ -40,7 +39,28 @@ function updateOverlay() {
     if (gp.buttons[DS4_MAP.options]?.pressed) document.querySelector('.start')?.classList.add('pressed');
     // Touchpad
     if (gp.buttons[DS4_MAP.touch]?.pressed) document.querySelector('.touchpad')?.classList.add('pressed');
-    // Sticks movement (optional: animate stick movement using gp.axes)
+
+    // Analog stick movement (for DS4/PS4 controller)
+    // Left stick: axes[0] (X), axes[1] (Y)
+    // Right stick: axes[2] (X), axes[3] (Y)
+    const leftStick = document.querySelector('.stick.left');
+    const rightStick = document.querySelector('.stick.right');
+    const maxMove = 20; // Max pixels to move from center
+
+    if (leftStick && gp.axes.length >= 2) {
+      const lx = gp.axes[0] * maxMove;
+      const ly = gp.axes[1] * maxMove;
+      leftStick.style.transform = `translate(${lx}px, ${ly}px)`;
+    }
+    if (rightStick && gp.axes.length >= 4) {
+      const rx = gp.axes[2] * maxMove;
+      const ry = gp.axes[3] * maxMove;
+      rightStick.style.transform = `translate(${rx}px, ${ry}px)`;
+    }
+  } else {
+    // Reset stick positions if no gamepad
+    document.querySelector('.stick.left')?.style.setProperty('transform', 'translate(0px, 0px)');
+    document.querySelector('.stick.right')?.style.setProperty('transform', 'translate(0px, 0px)');
   }
   requestAnimationFrame(updateOverlay);
 }
