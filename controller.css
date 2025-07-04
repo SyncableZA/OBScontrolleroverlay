@@ -48,7 +48,7 @@ body {
 
 .ds4 .button {
     background: url(https://philipbry.github.io/HdHbA0t.png);
-    filter: hue-rotate(190deg) brightness(1.2); /* Changed to Royal Blue */
+    filter: hue-rotate(200deg) saturate(1.8) brightness(1.2); /* Royal Blue */
     width: 54px;
     height: 54px;
     position: absolute;
