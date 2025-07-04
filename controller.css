@@ -5,7 +5,7 @@ body {
     overflow: hidden; 
 }
 
-.controller.ds4 {
+.controller.ps5 {
     background: url(https://philipbry.github.io/ZDjUbh0.png);
     width: 794px;
     height: 639px;
@@ -14,7 +14,7 @@ body {
     position: relative;
 }
 
-.ds4 .sticks {
+.ps5 .sticks {
     width: 367px;
     height: 95px;
     left: 222px;
@@ -22,23 +22,24 @@ body {
     position: absolute;
 }
 
-.ds4 .stick {
+.ps5 .stick {
     background: url(https://philipbry.github.io/3sBwghP.png);
     width: 95px;
     height: 95px;
     position: absolute;
+    transition: transform 0.08s cubic-bezier(.33,1.56,.6,1);
 }
 
-.ds4 .stick.pressed.left, .ds4 .stick.pressed.right {
+.ps5 .stick.pressed.left, .ps5 .stick.pressed.right {
     background-position: -95px 0;
 }
 
-.ds4 .stick.right {
+.ps5 .stick.right {
     top: 0;
     left: 255px;
 }
 
-.ds4 .abxy {
+.ps5 .abxy {
     width: 181px;
     height: 181px;
     left: 559px;
@@ -46,7 +47,7 @@ body {
     position: absolute;
 }
 
-.ds4 .button {
+.ps5 .button {
     background: url(https://philipbry.github.io/HdHbA0t.png);
     filter: hue-rotate(200deg) saturate(1.8) brightness(1.2); /* Royal Blue */
     width: 54px;
@@ -54,47 +55,47 @@ body {
     position: absolute;
 }
 
-.ds4 .button.pressed {
+.ps5 .button.pressed {
     background-position-y: -55px;
     margin-top: 0;
 }
 
-.ds4 .a {
+.ps5 .a {
     background-position: 0 0;
     left: 59px;
     top: 116px;
 }
 
-.ds4 .b {
+.ps5 .b {
     background-position: -54px 0;
     left: 118px;
     top: 59px;
 }
 
-.ds4 .x {
+.ps5 .x {
     background-position: -108px 0;
     left: 0px;
     top: 58px;
 }
 
-.ds4 .y {
+.ps5 .y {
     background-position: -162px 0;
     left: 59px;
     top: 0px;
 }
 
-.ds4 .arrows {
+.ps5 .arrows {
     left: 195px;
     top: 140px;
     width: 416px;
     height: 57px;
 }
 
-.ds4 .quadrant { 
+.ps5 .quadrant { 
     display: none; 
 }
 
-.ds4 .back, .ds4 .start {
+.ps5 .back, .ps5 .start {
     background: url(https://philipbry.github.io/PrAfLDQ.png);
     width: 23px;
     height: 37px;
@@ -106,14 +107,14 @@ body {
     left: 50px;
 }
 
-.ds4 .start {
+.ps5 .start {
     background-position: 23px 0;
     margin-right: 16px;
     float: right;
     left: 700px;
 }
 
-.ds4 .dpad {
+.ps5 .dpad {
     position: absolute;
     width: 125px;
     height: 126px;
@@ -121,50 +122,50 @@ body {
     left: 82px;
 }
 
-.ds4 .face {
+.ps5 .face {
     background: url(https://philipbry.github.io/548MWGT.png);
     position: absolute;
 }
 
-.ds4 .face.up, .ds4 .face.down {
+.ps5 .face.up, .ps5 .face.down {
     width: 44px;
     height: 58px;
 }
 
-.ds4 .face.left, .ds4 .face.right {
+.ps5 .face.left, .ps5 .face.right {
     width: 57px;
     height: 44px;
 }
 
-.ds4 .face.up {
+.ps5 .face.up {
     left: 45px;
     top: 0;
     background-position: 0px 0;
 }
 
-.ds4 .face.down {
+.ps5 .face.down {
     left: 45px;
     bottom: -7px;
     background-position: -44px 0;
 }
 
-.ds4 .face.left {
+.ps5 .face.left {
     top: 45px;
     left: 0;
     background-position: -88px 0;
 }
 
-.ds4 .face.right {
+.ps5 .face.right {
     top: 44px;
     right: -7px;
     background-position: -144px 0;
 }
 
-.ds4 .face.pressed {
+.ps5 .face.pressed {
     background-position-y: 58px;
 }
 
-.ds4 .bumpers {
+.ps5 .bumpers {
     width: 620px;
     height: 36px;
     left: 90px;
@@ -172,23 +173,29 @@ body {
     position: absolute;
 }
 
-.ds4 .bumper {
+.ps5 .bumper {
     background: url(https://philipbry.github.io/wijYAzG.png);
     width: 114px;
     height: 36px;
     opacity: 0;
     position: absolute;
+    transition: opacity 0.15s;
 }
 
-.ds4 .bumper.left {
+.ps5 .bumper.left {
     left: 0;
 }
 
-.ds4 .bumper.right {
+.ps5 .bumper.right {
     right: 0;
 }
 
-.ds4 .triggers {
+.ps5 .bumpers .bumper.pressed {
+    opacity: 1 !important;
+    filter: brightness(1.3);
+}
+
+.ps5 .triggers {
     width: 593px;
     height: 97px;
     left: 100px;
@@ -196,26 +203,32 @@ body {
     top: 0;
 }
 
-.ds4 .trigger {
+.ps5 .trigger {
     background: url(https://philipbry.github.io/KcAyIZw.png);
     width: 100px;
     height: 97px;
     opacity: 0;
     position: absolute;
     top: 0;
+    transition: opacity 0.15s;
 }
 
-.ds4 .trigger.left {
+.ps5 .trigger.left {
     left: 0;
 }
 
-.ds4 .trigger.right {
+.ps5 .trigger.right {
     background-position: -100px 0;
     right: 0;
     transform: rotateY(0);
 }
 
-.ds4 .touchpad {
+.ps5 .triggers .trigger.pressed {
+    opacity: 1 !important;
+    filter: brightness(1.3);
+}
+
+.ps5 .touchpad {
     width: 320px;
     height: 167px;
     position: absolute;
@@ -223,6 +236,13 @@ body {
     top: 97px;
 }
 
-.ds4 .touchpad.pressed {
+.ps5 .touchpad.pressed {
     background: url(https://philipbry.github.io/Gnd106J.png);
+}
+
+.ps5 .back.pressed,
+.ps5 .start.pressed {
+    opacity: 1 !important;
+    filter: brightness(1.3);
+    transition: opacity 0.15s, filter 0.15s;
 }
