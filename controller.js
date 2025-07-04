@@ -1,4 +1,4 @@
-// Universal PlayStation controller stick movement support
+// PS5 (DualSense) Controller Overlay Script
 
 function updateOverlay() {
   const gamepads = navigator.getGamepads();
@@ -13,11 +13,10 @@ function updateOverlay() {
   const maxMove = 20; // Max pixel movement from center
 
   if (gp) {
-    // Button indices for PS5/PS4 (DualSense/DualShock 4)
-    // These are generally:
+    // DualSense/PS5 mapping (standard mapping on browsers)
     // 0: Cross, 1: Circle, 2: Square, 3: Triangle
     // 4: L1, 5: R1, 6: L2, 7: R2
-    // 8: Create/Share, 9: Options, 10: L3, 11: R3
+    // 8: Create (Share), 9: Options, 10: L3, 11: R3
     // 12: Dpad Up, 13: Dpad Down, 14: Dpad Left, 15: Dpad Right
     // 16: PS, 17: Touchpad
 
@@ -34,12 +33,12 @@ function updateOverlay() {
     // Bumpers & triggers
     if (gp.buttons[4]?.pressed) document.querySelector('.bumper.left')?.classList.add('pressed');
     if (gp.buttons[5]?.pressed) document.querySelector('.bumper.right')?.classList.add('pressed');
-    if (gp.buttons[6]?.value > 0.1) document.querySelector('.trigger.left')?.classList.add('pressed');
-    if (gp.buttons[7]?.value > 0.1) document.querySelector('.trigger.right')?.classList.add('pressed');
+    if (gp.buttons[6]?.value > 0.1 || gp.buttons[6]?.pressed) document.querySelector('.trigger.left')?.classList.add('pressed');
+    if (gp.buttons[7]?.value > 0.1 || gp.buttons[7]?.pressed) document.querySelector('.trigger.right')?.classList.add('pressed');
     // Sticks pressed
     if (gp.buttons[10]?.pressed) document.querySelector('.stick.left')?.classList.add('pressed', 'left');
     if (gp.buttons[11]?.pressed) document.querySelector('.stick.right')?.classList.add('pressed', 'right');
-    // Share/Options buttons
+    // Share/Create and Options buttons
     if (gp.buttons[8]?.pressed) document.querySelector('.back')?.classList.add('pressed');
     if (gp.buttons[9]?.pressed) document.querySelector('.start')?.classList.add('pressed');
     // Touchpad
